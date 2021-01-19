@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table   class="table   table-striped" style="width:100%;">
+        <tr style="text-align:center">
+        <th>EMP ID</th>
+        <th>EMP NAME</th>
+        <th>EMP AGE</th>
+        <th>EMP CONTACT</th>
+        <th>EMP ADDRESS</th>
+        </tr>
+
+
+        <?php
+
+include 'index.php';
+$selectquery= "select * from emp_sal";
+$query = mysqli_query($con, $selectquery);
+$nums = mysqli_num_rows($query);
+while($res = mysqli_fetch_array($query)){
+    ?>
+    <tr  style="text-align:center">
+    <td><?php echo $res['emp_id'];?> </td>
+    <td><?php echo $res['empname'];?></td>
+    <td><?php echo $res['emp_age'];?></td>
+    <td><?php echo $res['emp_contact'];?></td>
+    <td><?php echo $res['empaddress'];?></td>
+    </tr>
+<?php
+}
+
+?>
+
+
+
+       
+    </table>
+</body>
+</html>
